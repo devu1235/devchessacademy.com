@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Dev Chess Academy</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        header {
+    background-color: #4caf50;
+    color: white;
+    padding: 50px 20px;
+    text-align: center;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    overflow: hidden;
+}
+
+header .logo {
+    width: 150px;  /* Adjust the width of the logo */
+    height: auto;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.5rem;
+    animation: slideDown 1s ease;
+}
+
+
+        #about-us {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 20px;
+        }
+
+        #about-us h2 {
+            color: #4caf50;
+            margin-bottom: 20px;
+            font-size: 2rem;
+            text-align: center;
+            position: relative;
+            animation: fadeIn 1s ease-in;
+        }
+
+        #about-us h2::after {
+            content: '';
+            width: 50px;
+            height: 4px;
+            background-color: #4caf50;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: -10px;
+        }
+
+        .about-content {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .about-text {
+            flex: 1;
+            font-size: 18px;
+            line-height: 1.6;
+            animation: fadeIn 1s ease-in forwards;
+        }
+
+        .about-text p {
+            margin: 10px 0;
+        }
+
+        .about-image {
+            flex: 1;
+            text-align: center;
+            animation: fadeIn 1s ease-in forwards;
+        }
+
+        .about-image img {
+            max-width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .about-container {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            opacity: 0;
+            animation: slideUp 1.2s ease forwards;
+        }
+
+        .about-card {
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            max-width: 350px;
+            text-align: left;
+            flex: 1;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .about-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .about-card h3 {
+            color: #4caf50;
+            margin-top: 0;
+            font-size: 1.5rem;
+        }
+
+        .about-card p {
+            font-size: 16px;
+            color: #666;
+            line-height: 1.5;
+        }
+
+        footer {
+            background-color: #4caf50;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 40px;
+        }
+         /* About Section Style */
+         #about-me {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 20px;
+        }
+
+        #about-me h2 {
+            color: #4caf50;
+            margin-bottom: 20px;
+            font-size: 2.5rem;
+            text-align: center;
+            position: relative;
+            animation: fadeIn 1s ease-in;
+        }
+
+        #about-me h2::after {
+            content: '';
+            width: 60px;
+            height: 4px;
+            background-color: #4caf50;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: -10px;
+        }
+
+        /* About Content Layout */
+        .about-content {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .about-text {
+            flex: 1;
+            font-size: 18px;
+            line-height: 1.8;
+            animation: fadeIn 1s ease-in forwards;
+            max-width: 500px;
+        }
+
+        .about-text p {
+            margin: 10px 0;
+        }
+
+        .about-images {
+            flex: 1;
+            display: flex;
+            justify-content: space-around;
+            animation: fadeIn 1s ease-in forwards;
+        }
+
+        .about-images img {
+            max-width: 48%;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            transition: transform 0.3s;
+        }
+
+        .about-images img:hover {
+            transform: scale(1.05);
+        }
+
+        #courses {
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        #courses h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .course-container {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .card {
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            flex: 1;
+            max-width: 300px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card h3 {
+            margin-top: 0;
+            color: #4caf50;
+        }
+
+        .pricing {
+            margin-top: 15px;
+            background-color: #f9f9f9;
+            border-top: 2px solid #4caf50;
+            border-radius: 8px;
+            padding: 15px;
+        }
+
+        .pricing h4 {
+            color: #333;
+            margin: 10px 0;
+        }
+
+        .pricing ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .pricing ul li {
+            margin: 5px 0;
+            padding: 8px;
+            background-color: #e8f5e9;
+            border-radius: 5px;
+            color: #4caf50;
+            font-weight: bold;
+        }
+        #free-trial {
+    padding: 30px;
+    text-align: center;
+    background-color: #4caf50;
+    color: white;
+    margin-top: 40px;
+}
+
+#free-trial h2 {
+    margin-bottom: 20px;
+}
+
+.trial-button {
+    display: inline-block;
+    padding: 15px 30px;
+    background-color: white;
+    color: #4caf50;
+    font-size: 18px;
+    font-weight: bold;
+    text-decoration: none;
+    border: 2px solid white;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+}
+
+.trial-button:hover {
+    background-color: #f9f9f9;
+    color: #4caf50;
+    border-color: #f9f9f9;
+}
+
+        footer p {
+            margin: 0;
+        }
+
+        @keyframes slideDown {
+            0% {
+                transform: translateY(-100%);
+            }
+            100% {
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+        /* Navigation Bar Styles */
+/* Navigation Bar Styles */
+nav {
+    background-color: #4caf50;
+    padding: 15px 20px;
+    width: 100%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    
+}
+
+nav ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    margin: 0 20px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #ffeb3b;
+}
+
+nav ul li a.active {
+    border-bottom: 2px solid #ffeb3b;
+}
+
+
+        @keyframes slideUp {
+            0% {
+                transform: translateY(20px);
+                opacity: 0;
+            }
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="logo.jpg" alt="Dev Chess Academy Logo" class="logo">
+        <h1>Welcome to Dev Chess Academy</h1>
+    </header>
+    
+
+    <nav>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#about-us">About Us</a></li>
+            <li><a href="#courses">Courses</a></li>
+            <li><a href="#free-trial">Book a Trial</a></li>
+        </ul>
+    </nav>
+    
+    
+    <section id="about-us">
+        <h2>Who We Are</h2>
+        <div class="about-content">
+            <div class="about-text">
+                <p>Dev Chess Academy is a vibrant hub for chess enthusiasts. We aim to nurture talent, inspire passion, and empower players to achieve their full potential.</p>
+                <p>Founded by experienced chess coaches, our academy blends modern techniques with timeless strategies, catering to beginners and advanced players alike. Join us to embark on a journey of growth and mastery.</p>
+            </div>
+            <div class="about-image">
+                <img src="chessclub.png" alt="Chess Board">
+            </div>
+        </div>
+
+        <div class="about-container">
+            <div class="about-card">
+                <h3>Our Mission</h3>
+                <p>To make chess accessible and enjoyable for everyone, fostering strategic thinking, patience, and creativity through our expert coaching programs.</p>
+            </div>
+            <div class="about-card">
+                <h3>Our Vision</h3>
+                <p>To create a world-class chess academy that nurtures talent and develops future champions, while promoting a lifelong love for the game.</p>
+            </div>
+            <div class="about-card">
+                <h3>Why Choose Us?</h3>
+                <p>- Experienced coaches<br>- Personalized coaching plans<br>- Online and offline options<br>- Affordable pricing</p>
+            </div>
+        </div>
+    </section>
+
+     <!-- About Me Section -->
+     <section id="about-me">
+        <h2>Meet Devanshi, Founder & Chess Coach</h2>
+        <div class="about-content">
+            <div class="about-text">
+                <p>Hello! I’m Devanshi Solanki, the founder of Dev Chess Academy. With years of experience as a chess coach and player, my mission is to help students from all backgrounds improve their skills and love for the game.</p>
+                <p>I have been passionate about chess from a young age and have coached players from beginners to advanced levels. Whether you’re learning the basics or refining complex strategies, my approach is designed to make each session engaging and effective.</p>
+            </div>
+
+            <!-- Two images: one for yourself and one for chess-related content -->
+            <div class="about-images">
+                <img src="dev2.jpg" alt="Devanshi, Chess Coach">
+            </div>
+        </div>
+    </section>
+
+    <section id="courses">
+        <h2>Our Courses</h2>
+        <div class="course-container">
+            <div class="card">
+                <h3>Beginner's Chess</h3>
+                <p>Start your chess journey with our beginner's course, focusing on the basics.</p>
+                <div class="pricing">
+                    <h4>Pricing</h4>
+                    <ul>
+                        <li>3 Months (12 sessions of 2 hours): ₹6,000</li>
+                        <li>6 Months (24 sessions of 2 hours): <DEL>₹12,000</DEL> <span style="color: red;">(5% Discount: ₹11,400)</span></li>
+                        <li>12 Months (48 sessions of 2 hours): <DEl>₹24,000</DEl> <span style="color: red;">(15% Discount: ₹20,400)</span></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="card">
+                <h3>Intermediate Chess</h3>
+                <p>Enhance your skills with strategies and tactical lessons for intermediate players.</p>
+                <div class="pricing">
+                    <h4>Pricing</h4>
+                    <ul>
+                        <li>3 Months (12 sessions of 2 hours): ₹6,000</li>
+                        <li>6 Months (24 sessions of 2 hours): <DEl>₹12,000</DEl><span style="color: red;">(5% Discount: ₹11,400)</span></li>
+                        <li>12 Months (48 sessions of 2 hours): <DEl>₹24,000</DEl> <span style="color: red;">(15% Discount: ₹20,400)</span></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="card">
+                <h3>Advanced Chess</h3>
+                <p>Master the game with advanced strategies and deep tactical play.</p>
+                <div class="pricing">
+                    <h4>Pricing</h4>
+                    <ul>
+                        <li>3 Months (12 sessions of 2 hours): ₹6,000</li>
+                        <li>6 Months (24 sessions of 2 hours): <del>₹12,000</del> <span style="color: red;">(5% Discount: ₹11,400)</span></li>
+                        <li>12 Months (48 sessions of 2 hours):<DEl>₹24,000</DEl> <span style="color: red;">(15% Discount: ₹20,400)</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        
+    </div>
+</div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="free-trial">
+        <h2>Book a Free Trial Lesson</h2>
+        <p>Experience the Dev Chess Academy difference with a free trial session. No commitment required!</p>
+        <a href="https://forms.gle/ZY3yMs4bppgQPzDK7" class="trial-button" target="_blank">Book a Trial</a>
+    </section>
+    
+    
+
+    <footer>
+        <p>&copy; 2024 Dev Chess Academy. All rights reserved.</p>
+        <p><strong>Address:</strong> 123 Chess Lane, Mumbai, India</p>
+        <p><strong>Contact:</strong> +91 98765 43210</p>
+        <p><strong>Email:</strong> <a href="mailto:co21devanshisolanki@gmail.com">co21devanshisolanki@gmail.com</a></p>
+    </footer>
+    
+</body>
+</html>
